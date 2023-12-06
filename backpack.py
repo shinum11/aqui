@@ -4,7 +4,7 @@ pesos_valores = [[2, 40], [3, 15], [5, 13], [2, 100],
                    [4, 20], [3, 89], [0.9, 200], [1.3, 90], 
                    [5, 234], [2, 100]]
 
-n_de_cromossomos = 150
+n_de_cromossomos = 200
 peso_max = 20
 n_de_itens = len(pesos_valores) 
 geracoes = 100
@@ -25,7 +25,7 @@ for j,i in enumerate(pesos_valores):
     valort += i[1]
 
 print("\nValor total:",valort,"R$")
-print("Peso total:",peso_max,"Kg\n\nItens:")
+print("Peso total:",peso_max,"Kg")
     
 print("\nSoluções Ótimas: ")
 for i in range(5):
