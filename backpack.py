@@ -1,26 +1,31 @@
 from algoritimo import *
-                #[peso,valor]
-pesos_e_valores = [[10, 40], [5, 15], [9, 13], [15, 100],
-                   [4, 20], [16, 89], [7, 200], [4, 90], 
-                   [133, 234], [2, 100]]
+                
+pesos_valores = [[2, 40], [3, 15], [5, 13], [2, 100],
+                   [4, 20], [3, 89], [0.9, 200], [1.3, 90], 
+                   [5, 234], [2, 100]]
 
 n_de_cromossomos = 150
-peso_max = 200
-n_de_itens = len(pesos_e_valores) 
+peso_max = 20
+n_de_itens = len(pesos_valores) 
 geracoes = 100
 
-populacao = population(n_de_cromossomos, n_de_itens)
-historico_de_fitness = [media_fitness(populacao, peso_max, pesos_e_valores)]
+populacao = populacao(n_de_cromossomos, n_de_itens)
+historico_de_fitness = [media_fitness(populacao, peso_max, pesos_valores)]
 for i in range(geracoes):
-    populacao = evolve(populacao, peso_max, pesos_e_valores, n_de_cromossomos)
-    historico_de_fitness.append(media_fitness(populacao, peso_max, pesos_e_valores))
+    populacao = evoluir(populacao, peso_max, pesos_valores, n_de_cromossomos)
+    historico_de_fitness.append(media_fitness(populacao, peso_max, pesos_valores))
 
-for indice,dados in enumerate(historico_de_fitness):
-   print ("Geracao: ", indice," | Media de valor na mochila: ", dados)
+for j,dados in enumerate(historico_de_fitness):
+   print ("Geracao: ", j," --- Media de valor na mochila: ", dados)
 
-print("\nPeso total:",peso_max,"g\n\nItens:")
-for indice,i in enumerate(pesos_e_valores):
-    print("Item ",indice+1,": ",i[0],"g | R$",i[1])
+valort = 0
+print("\n")
+for j,i in enumerate(pesos_valores):
+    print("Item ",j+1,"- ",i[0],"Kg --- R$",i[1])
+    valort += i[1]
+
+print("\nValor total:",valort,"R$")
+print("Peso total:",peso_max,"Kg\n\nItens:")
     
 print("\nSoluções Ótimas: ")
 for i in range(5):
