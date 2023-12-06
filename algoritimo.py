@@ -1,11 +1,11 @@
 from random import getrandbits, randint, random, choice
 
-def individual(n_de_itens):
+def individuo(n_de_itens):
    
     return [ getrandbits(1) for x in range(n_de_itens) ]
 
 def population(n_de_individuos, n_de_itens):
-    return [ individual(n_de_itens) for x in range(n_de_individuos) ]
+    return [ individuo(n_de_itens) for x in range(n_de_individuos) ]
 
 def fitness(individuo, peso_maximo, pesos_e_valores):
     peso_total, valor_total = 0, 0
